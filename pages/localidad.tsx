@@ -3,13 +3,13 @@ import { MainLayout } from '../components/layouts/MainLayout';
 
 import styles from '../styles/Home.module.css'
 
-const Home: NextPage = () => {
+const Localidad: NextPage = () => {
 
     return (
         <MainLayout>
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Home
+                    Localidad
                 </h1>
 
                 <p className={styles.description}>
@@ -21,4 +21,4 @@ const Home: NextPage = () => {
     )
 }
 
-export default Home
+export default Localidad
