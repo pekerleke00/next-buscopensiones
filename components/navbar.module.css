@@ -1,3 +1,9 @@
+.menuContainer{
+    background-color: #0198a1;
+    padding: 20px;
+}
+
 .menuContainer a {
     margin-right: 10px;
+    color: #fff;
 }
