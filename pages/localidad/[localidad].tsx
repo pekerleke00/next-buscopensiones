@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -16,16 +17,20 @@ const Localidad: NextPage = () => {
 
     const router = useRouter();
 
+    const MapWithNoSSR = dynamic(() => import("../../components/ui/map/Map"), {
+        ssr: false
+    });
+
     const getCityName = (city: string | string[] | undefined) => {
-        if (city === 'la_plata'){
+        if (city === 'la_plata') {
             return 'La Plata'
-        } else if (city === 'buenos_aires'){
+        } else if (city === 'buenos_aires') {
             return 'Buenos Aires Capital'
-        } else if (city === 'rodario'){
+        } else if (city === 'rosario') {
             return 'Rosario'
-        } else if (city === 'cordoba'){
+        } else if (city === 'cordoba') {
             return 'Cordoba'
-        } else if (city === 'mendoza'){
+        } else if (city === 'mendoza') {
             return 'Mendoza'
         }
     }
@@ -49,6 +54,10 @@ const Localidad: NextPage = () => {
                     {getCityName(router.query.localidad)}
                 </h1>
 
+                <div style={{marginBottom: 20}}>
+                    <MapWithNoSSR lat={-34.921418363392355} lng={-57.95422157423989} />
+                </div>
+
                 <div>
                     {/* TODO: ver comportamiento en mobile */}
                     {/* sidebar | listado + favoritos + filtros de busqueda +publicidad */}
@@ -62,7 +71,7 @@ const Localidad: NextPage = () => {
                     {/* resultados + paginado + publicidad */}
                     {
                         items.map((item: any) => (
-                            <ItemCard item={item} key={item.name}/>
+                            <ItemCard item={item} key={item.name} />
                         ))
                     }
                 </div>
