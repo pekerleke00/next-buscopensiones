@@ -15,10 +15,10 @@ const Localidad: NextPage = () => {
     console.log(router.query)
 
     return (
-        <MainLayout title={`BuscoPensiones | ${cities[router.query.localidad]}`}>
+        <MainLayout title={`BuscoPensiones`}>
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    {cities[router.query.localidad] || router.query.localidad}
+                    {router.query.localidad}
                 </h1>
 
                 <div>

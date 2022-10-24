@@ -10,7 +10,7 @@ export const PreFooter = () => {
             <div>
                 <h3>Sobre las publicaciones</h3>
                 <p>Las pensiones que se encuentran cargadas en esta pagina NO son propiedad de BuscoPensiones.com, ni se recibe dinero de ningun tipo de parte de las mismas por su publicacion.
-                    Si te interesa colaborar para que este proyecto sigua en pie podes hacerlo simplemete dejando "like" y recomendando la pagina a cualquier persona que creas que la pueda nesesitar.</p>
+                    Si te interesa colaborar para que este proyecto sigua en pie podes hacerlo simplemete dejando like y recomendando la pagina a cualquier persona que creas que la pueda nesesitar.</p>
             </div>
         </div>
     )
