@@ -9,13 +9,22 @@ const Item: NextPage = () => {
         <MainLayout>
             <main className={styles.main}>
                 <h1 className={styles.title}>
-                    Item
+                    titulo
                 </h1>
-
-                <p className={styles.description}>
-                    Get started by editing{' '}
-                    <code className={styles.code}>pages/index.tsx</code>
-                </p>
+                
+                <div>descripcion</div>
+                <div>
+                    info + mapa
+                </div>
+                <div>
+                    galeria de imagenes
+                </div>
+                <div>
+                    publicidad
+                </div>
+                <div>
+                    compartir
+                </div>
             </main>
         </MainLayout>
     )
