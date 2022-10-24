@@ -19,7 +19,7 @@ const Map = (props: Props) => {
             >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://api.mapbox.com/styles/v1/pekerleke/ckpkipeex4ynb17mpoeo83z1s.html?title=view&access_token=pk.eyJ1IjoicGVrZXJsZWtlIiwiYSI6ImNrbWI5MWozeTF6YWEycHFzbXpjZTh6NDcifQ.cekgpPQTIlVlKx0NDjbH8w&zoomwheel=true&fresh=true#9/40.72/-73.97"
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
                     // https://api.mapbox.com/styles/v1/pekerleke/ckpkipeex4ynb17mpoeo83z1s.html?title=view&access_token=pk.eyJ1IjoicGVrZXJsZWtlIiwiYSI6ImNrbWI5MWozeTF6YWEycHFzbXpjZTh6NDcifQ.cekgpPQTIlVlKx0NDjbH8w&zoomwheel=true&fresh=true#9/40.72/-73.97
                 />
