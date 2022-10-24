@@ -14,7 +14,6 @@ export const CitiesGrid = (props: Props) => {
     const router = useRouter();
 
     const handleClick = (cityName: string) => {
-        console.log('click')
         router.push(`/localidad/${cityName}`)
     }
 

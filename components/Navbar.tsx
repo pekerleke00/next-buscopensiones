@@ -7,8 +7,6 @@ export const Navbar = () => {
     return (
         <nav className={styles.menuContainer}>
             <Link href={'/'}>Home</Link>
-            <Link href={'/localidad'}>Localidad</Link>
-            <Link href={'/item'}>Item</Link>
         </nav>
     )
 }

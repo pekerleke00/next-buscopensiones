@@ -11,8 +11,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({cities}) => {
-    console.log(cities)
-
     return (
         <MainLayout>
             <main className={styles.main}>
