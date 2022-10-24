@@ -15,7 +15,7 @@ export const ItemCard = (props: Props) => {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/item`)
+        router.push(`/pen/${item.id}`)
     }
 
     return (
