@@ -1,16 +1,16 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react'
 
 import styles from './styles/itemCard.module.scss';
 
 interface Props {
-    item: any
+    item: any,
+    location: string
 }
 
 export const ItemCard = (props: Props) => {
 
-    const { item } = props;
+    const { item, location } = props;
 
     const router = useRouter();
 
@@ -18,13 +18,21 @@ export const ItemCard = (props: Props) => {
         router.push(`/pen/${item.id}`)
     }
 
+    const getPicture = () => {
+        const picture = item.pictures.find((picture: any) => picture.mainPicture) || item.pictures[0]
+        return picture ? encodeURI(picture.path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'
+    }
+
     return (
         <div className={styles.container} onClick={handleClick}>
-            <div className={styles.image} style={{'backgroundImage': `url(/index1.jpg)`}}></div>
+            <div
+                className={styles.image}
+                style={{'backgroundImage': `url(${getPicture()}`}}
+            ></div>
             <span className={styles.badge}>{item.type}</span>
             <div className={styles.info}>
                 <h4>{item.name}</h4>
-                <small>{item.address}</small>
+                <small>{item.address} • {location}</small>
             </div>
         </div>
     )

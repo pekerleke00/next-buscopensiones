@@ -4,8 +4,11 @@ import { useRouter } from 'next/router';
 import { MainLayout } from '../../components/layouts/MainLayout';
 import { ItemCard } from '../../components/ui/ItemCard';
 import { GetServerSideProps } from 'next'
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 import styles from '../../styles/Home.module.css'
+import { useState } from 'react';
 
 interface Item {
     name: string,
@@ -33,7 +36,7 @@ interface Props {
 
 const Item: NextPage<Props> = ({ info }) => {
 
-    console.log(info)
+    const [open, setOpen] = useState(false)
 
     const router = useRouter();
 
@@ -78,11 +81,24 @@ const Item: NextPage<Props> = ({ info }) => {
                     </div>
                 </div>
                 <div>
-                    {
-                        item?.pictures.map(picture => (
-                            <img style={{ width: 300 }} key={picture.path} src={`${picture.path.replace('..', 'https://buscopensiones.com')}`} alt="" />
-                        ))
-                    }
+                    <div>
+                        {
+                            item?.pictures.map(picture => (
+                                <img onClick={() => setOpen(true)} style={{ width: 100, height: 100, display: 'inline-block' }} key={picture.path} src={`${picture.path.replace('..', 'https://buscopensiones.com')}`} alt="" />
+                            ))
+                        }
+                    </div>
+
+                    <Lightbox
+                        open={open}
+                        close={() => setOpen(false)}
+                        slides={[
+                            { src: "/image1.jpg" },
+                            { src: "/image2.jpg" },
+                            { src: "/image3.jpg" },
+                        ]}
+                        slides={item?.pictures.map(picture => { return { src: picture.path.replace('..', 'https://buscopensiones.com') } })}
+                    />
                 </div>
                 <div>
                     publicidad
