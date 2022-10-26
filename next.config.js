@@ -4,7 +4,10 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     // outputStandalone: true
-  }
+  },
+  images: {
+    domains: ['buscopensiones.com'],
+  },
 }
 
 module.exports = nextConfig

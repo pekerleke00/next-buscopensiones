@@ -53,7 +53,7 @@ const Localidad: NextPage<Props> = ({ items, positions }) => {
                     />
                 </div>
 
-                <div>
+                <div style={{ maxWidth: 1280, margin: 'auto', padding: 10 }}>
                     {/* resultados + paginado + publicidad */}
                     {
                         items?.map((item: any) => (

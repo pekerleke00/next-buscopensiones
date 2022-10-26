@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from "./styles/navbar.module.scss";
 import classNames from 'classnames';
 import Localidad from '../../pages/localidad/[localidad]';
+import Image from 'next/image';
 
 export const Navbar = () => {
     const [showMore, setShowMore] = useState(false)
@@ -12,7 +13,7 @@ export const Navbar = () => {
         <nav>
             <div className={styles.menuContainer}>
                 <Link href={'/'}>
-                    <img className={styles.logo} src="/logo.png" alt="logo" />
+                    <Image className={styles.logo} src="/logo.png" width="182" height="35" alt="logo" />
                 </Link>
 
                 <div className={classNames(styles.menuIcon, { [styles.change]: showMore })} onClick={() => setShowMore(prevValue => !prevValue)}>

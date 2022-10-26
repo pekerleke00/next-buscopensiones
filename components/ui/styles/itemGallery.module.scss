@@ -1,0 +1,27 @@
+.container{
+    margin-top: 20px;
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .imageContainer{
+        height: 100px;
+        width: 100%;
+        background-color: #ddd;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .container{
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+        .imageContainer{
+            height: 200px;
+        }
+    }
+}

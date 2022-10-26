@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+
+    .infoItem{
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

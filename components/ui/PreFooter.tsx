@@ -2,7 +2,7 @@ import React from 'react'
 
 export const PreFooter = () => {
     return (
-        <div>
+        <div style={{ maxWidth: 1280, margin: 'auto', padding: 10 }}>
             <div>
                 <h3>Sobre el proyecto</h3>
                 <p>BuscoPensiones.com nace con el fin de resolver la problematica de encontrar lugar donde transitar los estudios en las distintas universidades de argentina. Para esto nosotros, que tambien somos estudiantes, creamos esta pagina para hacer mas facil la busqueda de pensiones, residencias u otros tipos de alberges universitarios concentrandolos en un solo lugar.</p>

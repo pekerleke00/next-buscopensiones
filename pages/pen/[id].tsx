@@ -9,6 +9,10 @@ import "yet-another-react-lightbox/styles.css";
 
 import styles from '../../styles/Home.module.css'
 import { useState } from 'react';
+import Image from 'next/image';
+import { ItemTitle } from '../../components/ui/ItemTitle';
+import { ItemInfo } from '../../components/ui/ItemInfo';
+import { ItemGallery } from '../../components/ui/ItemGallery';
 
 interface Item {
     name: string,
@@ -55,40 +59,16 @@ const Item: NextPage<Props> = ({ info }) => {
     }
     const item = info;
 
-    const handleBack = () => {
-        router.push(`/localidad/${getCityCode(item?.location)}`)
-    }
-
-
     return (
         <MainLayout title={`BuscoPensiones | item`}>
-            <main className={styles.main}>
-                <span onClick={handleBack}>Volver a {item?.location}</span>
-                <h1 className={styles.title}>
-                    {item?.name}
-                </h1>
+            <main className={styles.main} style={{ maxWidth: 1280, margin: 'auto', padding: 10 }}>
+                <ItemTitle item={info} />
 
-                <div>{item?.description}</div>
-                <div>
-                    <div>
-                        {item?.contact}
-                        {item?.priceDescription}
-                        {item?.address}
-                        {item?.web}
-                    </div>
-                    <div>
-                        mapa
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        {
-                            item?.pictures.map(picture => (
-                                <img onClick={() => setOpen(true)} style={{ width: 100, height: 100, display: 'inline-block' }} key={picture.path} src={`${picture.path.replace('..', 'https://buscopensiones.com')}`} alt="" />
-                            ))
-                        }
-                    </div>
+                <ItemInfo item={info} />
 
+                <ItemGallery pictures={item?.pictures}/>
+
+                {/* <div>
                     <Lightbox
                         open={open}
                         close={() => setOpen(false)}
@@ -99,13 +79,15 @@ const Item: NextPage<Props> = ({ info }) => {
                         ]}
                         slides={item?.pictures.map(picture => { return { src: picture.path.replace('..', 'https://buscopensiones.com') } })}
                     />
-                </div>
-                <div>
+                </div> */}
+                
+                
+                {/* <div>
                     publicidad
                 </div>
                 <div>
                     compartir
-                </div>
+                </div> */}
             </main>
         </MainLayout>
     )
