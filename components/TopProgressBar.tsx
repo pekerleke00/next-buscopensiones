@@ -6,6 +6,8 @@ let state: any;
 let activeRequests = 0;
 const delay = 250;
 
+// TODO rehacer esto
+
 function load() {
     if (state === "loading") {
         return;

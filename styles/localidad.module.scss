@@ -4,11 +4,21 @@
     column-gap: 10px;
     max-width: 1280px;
     margin: auto;
-    padding: 0 15px; 
+    padding: 0 15px;
+}
+
+.mapContainer{
+    padding: 15px;
 }
 
 @media (min-width: 768px) {
     .container{
         grid-template-columns: 1fr 3fr;
+    }
+
+    .mapContainer{
+        max-width: 1280px;
+        margin: auto;
+        margin-bottom: 20px;
     }
 }

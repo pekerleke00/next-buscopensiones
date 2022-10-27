@@ -32,7 +32,7 @@ export const ItemTitle = (props: Props) => {
 
     return (
         <div className={styles.container}>
-            <span className={styles.goBackButton} onClick={handleBack}>{'<'} Volver a {item?.location}</span>
+            <span className={styles.goBackButton} onClick={handleBack}>Volver a {item?.location}</span>
             <h1>
                 {item?.name}
             </h1>

@@ -2,11 +2,10 @@ import type { GetServerSideProps, NextPage } from 'next'
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { MainLayout } from '../../components/layouts/MainLayout';
-import { ItemCard } from '../../components/ui/ItemCard';
+import { Sidebar } from '../../components/ui/Sidebar';
+import { ItemCardList } from '../../components/ui/ItemCardList';
 
 import styles from '../../styles/localidad.module.scss';
-import { ItemCardList } from '../../components/ui/ItemCardList';
-import { Sidebar } from '../../components/ui/Sidebar';
 
 
 interface Props {
@@ -32,7 +31,7 @@ const Localidad: NextPage<Props> = ({ items, positions }) => {
                     {/* sidebar | listado + favoritos + filtros de busqueda +publicidad */}
                 </div>
 
-                <div style={{ marginBottom: 20 }}>
+                <div className={styles.mapContainer}>
                     <MapWithNoSSR
                         lat={-34.921418363392355}
                         lng={-57.95422157423989}

@@ -19,7 +19,7 @@ const Map = (props: Props) => {
     const { lat, lng, zoom, markers } = props;
 
     return (
-        <div style={{ borderRadius: 10, overflow: 'hidden' }}>
+        <div style={{ borderRadius: 10, overflow: 'hidden', border: '1px solid #ccc' }}>
             <MapContainer
                 center={[lat, lng]} zoom={zoom || 12} scrollWheelZoom={true}
                 style={{ height: 200, zIndex: 0 }}

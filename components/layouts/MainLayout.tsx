@@ -21,11 +21,12 @@ export const MainLayout: FC<Props> = (props: Props) => {
             <Head>
                 <title>{title || 'BuscoPensiones'}</title>
                 <meta name="description" content="Catalogo de pensiones y residencias universitarias" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/favicon-bp.ico" />
                 <meta property="og:title" content="BuscoPensiones" />
                 <meta property="og:description" content="Guia de pensiones y residencias universitarias" />
                 <meta property="og:image" content={`${origin}/img/banner.png`} />
                 <meta name="theme-color" content="#0198A1" />
+                
                 {/* meta keywords */}
                 {/* meta author */}
             </Head>

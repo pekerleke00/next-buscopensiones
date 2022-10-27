@@ -1,18 +1,19 @@
 .container{
-    background-color: #f2f2f2;
+    // background-color: #fff;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0 10px;
     display: none;
 
     h3{
-        margin: 6px 0 20px 0;
-        font-size: 24px;
+        margin: 0 0 20px 0;
+        font-size: 30px;
+        font-weight: 700;
         color: #444;
 
         small{
             display: block;
             font-weight: 100;
-            font-size: 12px;
+            font-size: 14px;
         }
     }
 

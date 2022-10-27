@@ -1,7 +1,7 @@
 import React from 'react'
+import { useRouter } from 'next/router';
 
 import styles from './styles/citiesGrid.module.scss'
-import { useRouter } from 'next/router';
 
 interface Props {
     cities: any[]
@@ -26,7 +26,6 @@ export const CitiesGrid = (props: Props) => {
                         <span>
                             {city.label}
                         </span>
-                        {/* <img src="/la_plata.jpg" alt="" /> */}
                     </div>
                 ))
             }
