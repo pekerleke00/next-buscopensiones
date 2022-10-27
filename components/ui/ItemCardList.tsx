@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
-import React from 'react'
 import { ItemCard } from './ItemCard';
+
+import styles from './styles/itemCardList.module.scss';
 
 interface Props {
     items: any
@@ -27,7 +28,7 @@ export const ItemCardList = (props: Props) => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
 
             {/* resultados + paginado + publicidad */}
             {

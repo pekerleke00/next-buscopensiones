@@ -32,7 +32,8 @@ export const ItemCard = (props: Props) => {
             <span className={styles.badge}>{item.type}</span>
             <div className={styles.info}>
                 <h4>{item.name}</h4>
-                <small>{item.address} • {location}</small>
+                <small>{item.address}</small>
+                <small>{location}</small>
             </div>
         </div>
     )

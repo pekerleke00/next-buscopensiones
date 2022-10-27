@@ -11,7 +11,7 @@ interface Item {
     name: string,
     description: string,
     contact: string,
-    address: string,
+    address?: string,
     distric: string,
     location: string,
     type: string,
@@ -50,6 +50,8 @@ const Item: NextPage<Props> = ({ info }) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const data = await fetch(`https://buscopensiones.com/labs/api/controller.php?type=getById&value=${ctx.query.id}&key=f381add79d6349e58f4aa18b7139ef54`)
         .then(response => response.json())
+
+    console.log(data.data.residences[0])
 
     return {
         props: {

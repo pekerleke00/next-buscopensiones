@@ -3,7 +3,7 @@
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-template-columns: 1fr;
-    padding: 20px 0;
+    padding: 5px 0;
 
     .cityCard {
         background-color: #ccc;
@@ -11,7 +11,8 @@
         border-radius: 10px;
         min-height: 100px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
         transition: 0.2s;
         background-size: cover;
         background-position: center;
@@ -27,7 +28,7 @@
             height: 100%;
             position: absolute;
             width: 100%;
-            background: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(255 255 255 / 0%), rgb(0 0 0 / 73%));
+            background: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(0 0 0 / 73%));
             left: 0;
             top: 0;
             z-index: 0;

@@ -31,10 +31,14 @@ export const ItemInfo = (props: Props) => {
                 </div>
 
                 <div>
-                    <p className={styles.infoItem}>
-                        <label>Ubicacion</label>
-                        <span>{item?.address}</span>
-                    </p>
+                    {
+                        item?.address && (
+                            <p className={styles.infoItem}>
+                                <label>Ubicacion</label>
+                                <span>{item?.address}</span>
+                            </p>
+                        )
+                    }
                     {
                         item?.web && (
                             <p className={styles.infoItem}>
