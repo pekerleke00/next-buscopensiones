@@ -1,15 +1,11 @@
 import type { NextPage } from 'next'
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { MainLayout } from '../../components/layouts/MainLayout';
-import { ItemCard } from '../../components/ui/ItemCard';
 import { GetServerSideProps } from 'next'
-import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
 import styles from '../../styles/Home.module.css'
 import { useState } from 'react';
-import Image from 'next/image';
 import { ItemTitle } from '../../components/ui/ItemTitle';
 import { ItemInfo } from '../../components/ui/ItemInfo';
 import { ItemGallery } from '../../components/ui/ItemGallery';

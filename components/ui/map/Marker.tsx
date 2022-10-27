@@ -12,14 +12,14 @@ export const Marker = (props: Props) => {
 
     return (
         <LeafletMarker position={position} icon={L.icon({
-            iconUrl: '/marker.svg',
+            iconUrl: '/marker.png',
             iconSize: [30, 30],
             iconAnchor: [12, 30],
             popupAnchor: [0, -30],
         })}>
-            <Popup>
+            {/* <Popup>
                 A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+            </Popup> */}
         </LeafletMarker>
     )
 }

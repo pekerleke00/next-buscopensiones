@@ -1,0 +1,40 @@
+.container{
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+
+    h3{
+        margin: 6px 0 20px 0;
+        font-size: 24px;
+        color: #444;
+
+        small{
+            display: block;
+            font-weight: 100;
+            font-size: 12px;
+        }
+    }
+
+    p{
+        margin: 5px 0 0 0;
+        color: #444;
+
+        &.filterTitle{
+            font-weight: bold;
+        }
+    }
+
+    .adMockup{
+        margin-top: 30px;
+        height: 200px;
+        border-radius: 6px;
+        background-color: #ccc;
+    }
+}
+
+@media (min-width: 768px) {
+    .container{
+        display: block;
+    }
+}

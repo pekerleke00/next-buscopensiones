@@ -1,16 +1,15 @@
 import { useState } from 'react';
+import classNames from 'classnames';
 import Link from 'next/link'
+import Image from 'next/image';
 
 import styles from "./styles/navbar.module.scss";
-import classNames from 'classnames';
-import Localidad from '../../pages/localidad/[localidad]';
-import Image from 'next/image';
 
 export const Navbar = () => {
     const [showMore, setShowMore] = useState(false)
 
     return (
-        <nav>
+        <nav className={styles.navContainer}>
             <div className={styles.menuContainer}>
                 <Link href={'/'}>
                     <Image className={styles.logo} src="/logo.png" width="182" height="35" alt="logo" />

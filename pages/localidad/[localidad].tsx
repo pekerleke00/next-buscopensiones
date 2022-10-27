@@ -3,9 +3,10 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { MainLayout } from '../../components/layouts/MainLayout';
 import { ItemCard } from '../../components/ui/ItemCard';
-import { LocationBanner } from '../../components/ui/LocationBanner';
 
-import styles from '../../styles/Home.module.css'
+import styles from '../../styles/localidad.module.scss';
+import { ItemCardList } from '../../components/ui/ItemCardList';
+import { Sidebar } from '../../components/ui/Sidebar';
 
 
 interface Props {
@@ -21,23 +22,9 @@ const Localidad: NextPage<Props> = ({ items, positions }) => {
         ssr: false
     });
 
-    const getCityName = (city: string | string[] | undefined) => {
-        if (city === 'la_plata') {
-            return 'La Plata'
-        } else if (city === 'buenos_aires') {
-            return 'Buenos Aires Capital'
-        } else if (city === 'rosario') {
-            return 'Rosario'
-        } else if (city === 'cordoba') {
-            return 'Cordoba'
-        } else if (city === 'mendoza') {
-            return 'Mendoza'
-        }
-    }
-
     return (
         <MainLayout title={`BuscoPensiones`}>
-            <main className={styles.main}>
+            <main>
                 {/* <LocationBanner location={getCityName(router.query.localidad) || ''} /> */}
 
                 <div>
@@ -53,13 +40,9 @@ const Localidad: NextPage<Props> = ({ items, positions }) => {
                     />
                 </div>
 
-                <div style={{ maxWidth: 1280, margin: 'auto', padding: 10 }}>
-                    {/* resultados + paginado + publicidad */}
-                    {
-                        items?.map((item: any) => (
-                            <ItemCard item={item} key={item.name} location={getCityName(router.query.localidad) || ''} />
-                        ))
-                    }
+                <div className={styles.container}>
+                    <Sidebar location={'La Plata'} />
+                    <ItemCardList items={items}/>
                 </div>
             </main>
         </MainLayout>

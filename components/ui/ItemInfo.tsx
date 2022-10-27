@@ -18,18 +18,39 @@ export const ItemInfo = (props: Props) => {
 
     return (
         <div className={styles.container}>
-            <div>
-                <span className={styles.infoItem}>Contacto: {item?.contact}</span>
-                <span className={styles.infoItem}>Tarifas: {item?.priceDescription}</span>
-                <span className={styles.infoItem}>Ubicacion: {item?.address}</span>
-                <span className={styles.infoItem}>Web: {item?.web}</span>
+            <div className={styles.infoContainer}>
+                <div>
+                    <p className={styles.infoItem}>
+                        <label>Contacto</label>
+                        <span>{item?.contact}</span>
+                    </p>
+                    <p className={styles.infoItem}>
+                        <label>Tarifas</label>
+                        <span>{item?.priceDescription || 'Consultar'}</span>
+                    </p>
+                </div>
+
+                <div>
+                    <p className={styles.infoItem}>
+                        <label>Ubicacion</label>
+                        <span>{item?.address}</span>
+                    </p>
+                    {
+                        item?.web && (
+                            <p className={styles.infoItem}>
+                                <label>Web</label>
+                                <a target='_blank' href={item?.web}>{item?.web}</a>
+                            </p>
+                        )
+                    }
+                </div>
             </div>
             <div className={styles.mapContainer}>
                 <MapWithNoSSR
                     lat={parseFloat(item.lat)}
                     lng={parseFloat(item.lng)}
                     zoom={17}
-                    markers={[{lat: parseFloat(item.lat), lng: parseFloat(item.lng), id: item.id}]}
+                    markers={[{ lat: parseFloat(item.lat), lng: parseFloat(item.lng), id: item.id }]}
                 />
             </div>
         </div>
