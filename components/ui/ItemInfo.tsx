@@ -39,7 +39,7 @@ export const ItemInfo = (props: Props) => {
                         item?.web && (
                             <p className={styles.infoItem}>
                                 <label>Web</label>
-                                <a target='_blank' href={item?.web}>{item?.web}</a>
+                                <a target='_blank' rel='noreferrer' href={item?.web}>{item?.web}</a>
                             </p>
                         )
                     }
