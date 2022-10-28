@@ -1,13 +1,17 @@
 import React from 'react'
+import dynamic from 'next/dynamic';
 
 import styles from './styles/sidebar.module.scss'
-import { GoogleAd } from './ads/GoogleAd';
 
 interface Props {
     location: String
 }
 
 export const Sidebar = (props: Props) => {
+
+    const AdWithNoSSR = dynamic(() => import("./ads/GoogleAd"), {
+        ssr: false
+    });
 
     const {location} = props;
 
@@ -28,7 +32,7 @@ export const Sidebar = (props: Props) => {
             <p>Masculinas</p>
             <p>Mixtas</p>
 
-            <GoogleAd currentPath="sidebar"/>
+            {/* <AdWithNoSSR currentPath="sidebar"/> */}
             <div className={styles.adMockup}></div>
         </div>
     )

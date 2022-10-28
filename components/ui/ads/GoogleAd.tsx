@@ -5,11 +5,14 @@ interface Props {
     currentPath: string
 }
 
-export const GoogleAd = (props: Props) => {
+const GoogleAd = (props: Props) => {
     const { currentPath } = props;
     useEffect(() => {
-        (window as any).adsbygoogle = (window as any).adsbygoogle ? (window as any).adsbygoogle : [];
-        (window as any).adsbygoogle.push({});
+        if (typeof window !== "undefined") {
+            const windowAux = window as any;
+            windowAux.adsbygoogle = windowAux.adsbygoogle || [];
+            windowAux.adsbygoogle.push({});
+        }
     }, [currentPath])
 
     return (
@@ -28,3 +31,5 @@ export const GoogleAd = (props: Props) => {
         </div>
     )
 }
+
+export default GoogleAd;

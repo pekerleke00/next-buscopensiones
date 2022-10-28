@@ -1,6 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
 import { MainLayout } from '../../components/layouts/MainLayout';
 import { Sidebar } from '../../components/ui/Sidebar';
 import { ItemCardList } from '../../components/ui/ItemCardList';
@@ -16,8 +15,6 @@ interface Props {
 }
 
 const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
-
-    const router = useRouter();
 
     const MapWithNoSSR = dynamic(() => import("../../components/ui/map/Map"), {
         ssr: false
