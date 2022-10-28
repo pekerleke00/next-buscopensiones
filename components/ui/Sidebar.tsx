@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styles from './styles/sidebar.module.scss'
+import { GoogleAd } from './ads/GoogleAd';
 
 interface Props {
     location: String
@@ -27,6 +28,7 @@ export const Sidebar = (props: Props) => {
             <p>Masculinas</p>
             <p>Mixtas</p>
 
+            <GoogleAd currentPath="sidebar"/>
             <div className={styles.adMockup}></div>
         </div>
     )
