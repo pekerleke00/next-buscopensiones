@@ -43,7 +43,7 @@ export const ItemInfo = (props: Props) => {
                         item?.web && (
                             <p className={styles.infoItem}>
                                 <label>Web</label>
-                                <a target='_blank' rel='noreferrer' href={item?.web}>{item?.web}</a>
+                                <span>{item?.web}</span>
                             </p>
                         )
                     }
@@ -53,7 +53,7 @@ export const ItemInfo = (props: Props) => {
                 <MapWithNoSSR
                     lat={parseFloat(item.lat)}
                     lng={parseFloat(item.lng)}
-                    zoom={17}
+                    zoom={15}
                     markers={[{ lat: parseFloat(item.lat), lng: parseFloat(item.lng), id: item.id }]}
                 />
             </div>

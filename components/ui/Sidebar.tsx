@@ -13,7 +13,7 @@ export const Sidebar = (props: Props) => {
 
     return (
         <div className={styles.container}>
-            <h3>{location} <small>1000 resultados</small></h3>
+            <h3>{location} <small>xx resultados</small></h3>
 
             <p className={styles.filterTitle}>Ordenar por:</p>
             <p>Populares</p>

@@ -4,13 +4,12 @@ import React from 'react'
 import styles from './styles/itemCard.module.scss';
 
 interface Props {
-    item: any,
-    location: string
+    item: any
 }
 
 export const ItemCard = (props: Props) => {
 
-    const { item, location } = props;
+    const { item } = props;
 
     const router = useRouter();
 
@@ -33,7 +32,7 @@ export const ItemCard = (props: Props) => {
             <div className={styles.info}>
                 <h4>{item.name}</h4>
                 <small>{item.address}</small>
-                <small>{location}</small>
+                <small>{item.location}</small>
             </div>
         </div>
     )
