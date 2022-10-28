@@ -26,9 +26,15 @@ export const MainLayout: FC<Props> = (props: Props) => {
                 <meta property="og:description" content="Guia de pensiones y residencias universitarias" />
                 <meta property="og:image" content={`${origin}/img/banner.png`} />
                 <meta name="theme-color" content="#0198A1" />
-                
+
                 {/* meta keywords */}
                 {/* meta author */}
+
+                <script 
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3805134409321089"
+                    crossOrigin="anonymous"
+                ></script>
             </Head>
 
             <Navbar />
