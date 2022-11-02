@@ -1,11 +1,12 @@
 import dynamic from 'next/dynamic';
 import React from 'react'
-import Map from './map/Map';
 
 import styles from './styles/itemInfo.module.scss'
+import { getNearByInfoByLocation } from '../utils/nearByInfo';
 
 interface Props {
-    item: any
+    item: any,
+    location: string
 }
 
 const MapWithNoSSR = dynamic(() => import("./map/Map"), {
@@ -14,7 +15,9 @@ const MapWithNoSSR = dynamic(() => import("./map/Map"), {
 
 export const ItemInfo = (props: Props) => {
 
-    const { item } = props;
+    const { item, location } = props;
+
+    const nearByInfo = getNearByInfoByLocation(location);
 
     return (
         <div className={styles.container}>
@@ -54,7 +57,24 @@ export const ItemInfo = (props: Props) => {
                     lat={parseFloat(item.lat)}
                     lng={parseFloat(item.lng)}
                     zoom={15}
-                    markers={[{ lat: parseFloat(item.lat), lng: parseFloat(item.lng), id: item.id }]}
+                    markers={[
+                        {
+                            lat: parseFloat(item.lat),
+                            lng: parseFloat(item.lng),
+                            id: item.id,
+                            name: item.name,
+                            icon: '/marker.svg',
+                        },
+                        ...nearByInfo.map(info => {
+                            return {
+                                id: info.name,
+                                lat: info.lat,
+                                lng: info.lng,
+                                icon: '/building.png',
+                                name: info.name
+                            }
+                        })
+                    ]}
                 />
             </div>
         </div>

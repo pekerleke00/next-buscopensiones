@@ -6,6 +6,8 @@ import { ItemInfo } from '../../components/ui/ItemInfo';
 import { ItemGallery } from '../../components/ui/ItemGallery';
 
 import styles from '../../styles/pen.module.scss'
+import { NearByGrid } from '../../components/ui/NearByGrid';
+import { getCityInfo } from '../../components/utils/citiesInfo';
 
 interface Item {
     name: string,
@@ -17,8 +19,8 @@ interface Item {
     type: string,
     priceDescription: string,
     web: string,
-    lat: string,
-    lng: string,
+    lat: number,
+    lng: number,
     pictures: Picture[]
 }
 
@@ -28,18 +30,28 @@ interface Picture {
 }
 
 interface Props {
-    info: Item
+    info?: Item
 }
 
 const Item: NextPage<Props> = ({ info }) => {
+
+    console.log(info)
+    console.log('sdfggfsdgdfsgsdfgsfdgsfd')
+    if (!info) {
+        return <div>No se encontro</div>
+    }
+
     return (
         <MainLayout title={`${info.name} | BuscoPensiones`}>
             <main className={styles.container}>
                 <ItemTitle item={info} />
+                
+                <ItemGallery pictures={info?.pictures} />
 
-                <ItemInfo item={info} />
+                <ItemInfo item={info} location={getCityInfo(info.location)?.name!}/>
 
-                <ItemGallery pictures={info?.pictures}/>
+
+                <NearByGrid lat={info.lat} lng={info.lng} location={getCityInfo(info.location)?.name!} name={info.name} />
 
                 <div className={styles.adMockup}></div>
             </main>
@@ -51,11 +63,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const data = await fetch(`https://buscopensiones.com/labs/api/controller.php?type=getById&value=${ctx.query.id}&key=f381add79d6349e58f4aa18b7139ef54`)
         .then(response => response.json())
 
-    console.log(data.data.residences[0])
-
     return {
         props: {
-            info: data.data.residences[0]
+            info: data.data.residences.length ? data.data.residences[0] : null
         }
     }
 }

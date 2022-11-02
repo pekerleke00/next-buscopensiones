@@ -1,4 +1,5 @@
 import { ItemCard } from './ItemCard';
+import { Pagination } from './Pagination';
 
 import styles from './styles/itemCardList.module.scss';
 
@@ -20,7 +21,7 @@ export const ItemCardList = (props: Props) => {
                 }
             </div>
             <hr />
-            paginado
+            <Pagination totalAmount={129}/>
         </>
     )
 }

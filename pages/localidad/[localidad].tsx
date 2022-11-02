@@ -41,7 +41,7 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
 
                 <div className={styles.container}>
                     <Sidebar location={cityInfo?.label || ''} />
-                    <ItemCardList items={items}/>
+                    <ItemCardList items={items} />
                 </div>
             </main>
         </MainLayout>
@@ -50,17 +50,21 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const cityInfo = getCityInfo(ctx.query.localidad as string)
+    const page = ctx.query.page || 1
 
-    const items = await fetch(`https://buscopensiones.com/labs/api/controller.php?page=1&location=${cityInfo?.label || ''}&type=getByLocation&key=f381add79d6349e58f4aa18b7139ef54`)
+    const items = await fetch(`https://buscopensiones.com/labs/api/controller.php?page=1&location=${cityInfo?.label || ''}&type=getByLocation&key=f381add79d6349e58f4aa18b7139ef54&page=${page}`)
         .then(response => response.json())
 
     const positions = await fetch(`https://buscopensiones.com/labs/api/controller.php?location=${cityInfo?.label || ''}&type=getPositions&key=f381add79d6349e58f4aa18b7139ef54`)
         .then(response => response.json())
 
+    console.log(items.data?.decodedPensiones)
+
     return {
         props: {
             items: items.data?.arr,
             positions: positions.data?.arr,
+            itemsAmount: items.data?.decodedPensiones,
             cityInfo
         }
     }

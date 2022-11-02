@@ -5,7 +5,9 @@ import { Marker } from "./Marker";
 interface Marker {
     lat: number,
     lng: number,
-    id: number
+    id: number | string,
+    icon?: string,
+    name?: string
 }
 
 interface Props {
@@ -32,7 +34,12 @@ const Map = (props: Props) => {
                 />
                 {
                     markers.map(marker => (
-                        <Marker key={marker.id} position={[marker.lat, marker.lng]}/>
+                        <Marker
+                            key={marker.id}
+                            position={[marker.lat, marker.lng]}
+                            icon={marker.icon}
+                            name={marker.name}
+                        />
                     ))
                 }
             </MapContainer>
