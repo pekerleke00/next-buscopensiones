@@ -11,10 +11,11 @@ import styles from '../../styles/localidad.module.scss';
 interface Props {
     items: any[],
     positions: any[],
-    cityInfo: any
+    cityInfo: any,
+    itemsAmount: number
 }
 
-const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
+const Localidad: NextPage<Props> = ({ items, positions, cityInfo, itemsAmount }) => {
 
     const MapWithNoSSR = dynamic(() => import("../../components/ui/map/Map"), {
         ssr: false
@@ -22,7 +23,7 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
 
     return (
         <MainLayout title={`BuscoPensiones`}>
-            <main>
+            <main style={{paddingBottom: 40}}>
                 {/* <LocationBanner location={getCityName(router.query.localidad) || ''} /> */}
 
                 <div>
@@ -40,7 +41,7 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo }) => {
                 </div>
 
                 <div className={styles.container}>
-                    <Sidebar location={cityInfo?.label || ''} />
+                    <Sidebar location={cityInfo?.label || ''} itemsQuantity={itemsAmount}/>
                     <ItemCardList items={items} />
                 </div>
             </main>

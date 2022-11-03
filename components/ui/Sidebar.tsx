@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic';
 import styles from './styles/sidebar.module.scss'
 
 interface Props {
-    location: String
+    location: String,
+    itemsQuantity: number;
 }
 
 export const Sidebar = (props: Props) => {
@@ -13,11 +14,11 @@ export const Sidebar = (props: Props) => {
         ssr: false
     });
 
-    const {location} = props;
+    const {location, itemsQuantity} = props;
 
     return (
         <div className={styles.container}>
-            <h3>{location} <small>xx resultados</small></h3>
+            <h3>{location} <small>{itemsQuantity} resultados</small></h3>
 
             <p className={styles.filterTitle}>Ordenar por:</p>
             <p>Populares</p>
