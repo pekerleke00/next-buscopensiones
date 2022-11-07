@@ -1,20 +1,13 @@
 import { MapContainer, TileLayer} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Marker } from "./Marker";
-
-interface Marker {
-    lat: number,
-    lng: number,
-    id: number | string,
-    icon?: string,
-    name?: string
-}
+import { Marker as MarkerModel } from "../../../models/Position";
 
 interface Props {
     lat: number,
     lng: number,
     zoom?: number,
-    markers: Marker[]
+    markers: MarkerModel[]
 }
 
 const Map = (props: Props) => {

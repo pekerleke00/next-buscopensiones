@@ -129,60 +129,6 @@ export const getNearByInfo = () => {
     ]
 }
 
-var latArq = (-34.905152);
-                var lonArq = (-57.943210);
-
-                var latBellas = (-34.923465);
-                var lonBellas = (-57.941851);
-
-                var latAstro = (-34.908789);
-                var lonAstro = (-57.933296);
-
-                var latEco = (-34.912873);
-                var lonEco = (-57.950574);
-
-                var latExa = (-34.907087);
-                var lonExa = (-57.944542);
-
-                var latAbog = (-34.913415);
-                var lonAbog = (-57.950597);
-
-                var latMed = (-34.909494);
-                var lonMed = (-57.928393);
-
-                var latNat = (-34.908771);
-                var lonNat = (-57.926375);
-
-                var latVet = -34.911771;
-                var lonVet = -57.930023;
-
-                var latHuma = -34.900369;
-                var lonHuma = -57.932167;
-
-                var latInfo = -34.903588;
-                var lonInfo = -57.937983;
-
-                var latIng = -34.907644;
-                var lonIng = -57.945021;
-
-                var latOdont = -34.908664;
-                var lonOdont = -57.943044;
-
-                var latPerio = -34.912369;
-                var lonPerio = -57.926882;
-
-                var latPsico = -34.900369;
-                var lonPsico = -57.932167;
-
-                var latTraba = -34.925165;
-                var lonTraba = -57.941029;
-
-                var latUtn = -34.905247;
-                var lonUtn = -57.925497;
-
-                var latUca = -34.924614;
-                var lonUca = -57.950721;
-
 export const getNearByInfoByLocation = (location: string) => {
     return getNearByInfo().filter(nearByInfo => nearByInfo.location === location);
 }

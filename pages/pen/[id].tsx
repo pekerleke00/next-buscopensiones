@@ -4,39 +4,17 @@ import { GetServerSideProps } from 'next'
 import { ItemTitle } from '../../components/ui/ItemTitle';
 import { ItemInfo } from '../../components/ui/ItemInfo';
 import { ItemGallery } from '../../components/ui/ItemGallery';
-
-import styles from '../../styles/pen.module.scss'
+import { Item } from '../../models/Item';
 import { NearByGrid } from '../../components/ui/NearByGrid';
 import { getCityInfo } from '../../components/utils/citiesInfo';
 
-interface Item {
-    name: string,
-    description: string,
-    contact: string,
-    address?: string,
-    distric: string,
-    location: string,
-    type: string,
-    priceDescription: string,
-    web: string,
-    lat: number,
-    lng: number,
-    pictures: Picture[]
-}
-
-interface Picture {
-    mainPicture: boolean,
-    path: string
-}
+import styles from '../../styles/pen.module.scss'
 
 interface Props {
     info?: Item
 }
 
 const Item: NextPage<Props> = ({ info }) => {
-
-    console.log(info)
-    console.log('sdfggfsdgdfsgsdfgsfdgsfd')
     if (!info) {
         return <div>No se encontro</div>
     }

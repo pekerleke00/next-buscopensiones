@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
+import { Item } from '../../models/Item';
 
 import styles from './styles/itemTitle.module.scss';
 
 interface Props {
-    item: any
+    item: Item
 }
 
 export const ItemTitle = (props: Props) => {

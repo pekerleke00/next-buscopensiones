@@ -4,14 +4,17 @@ import { MainLayout } from '../../components/layouts/MainLayout';
 import { Sidebar } from '../../components/ui/Sidebar';
 import { ItemCardList } from '../../components/ui/ItemCardList';
 import { getCityInfo } from '../../components/utils/citiesInfo';
+import { Item } from '../../models/Item';
+import City from '../../models/City';
+import { Position } from '../../models/Position';
 
 import styles from '../../styles/localidad.module.scss';
 
 
 interface Props {
-    items: any[],
-    positions: any[],
-    cityInfo: any,
+    items: Item[],
+    positions: Position[],
+    cityInfo: City,
     itemsAmount: number
 }
 
@@ -58,8 +61,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
     const positions = await fetch(`https://buscopensiones.com/labs/api/controller.php?location=${cityInfo?.label || ''}&type=getPositions&key=f381add79d6349e58f4aa18b7139ef54`)
         .then(response => response.json())
-
-    console.log(items.data?.decodedPensiones)
 
     return {
         props: {

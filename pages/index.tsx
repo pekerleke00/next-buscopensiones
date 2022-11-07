@@ -4,11 +4,12 @@ import { MainLayout } from '../components/layouts/MainLayout';
 import { CitiesGrid } from '../components/ui/CitiesGrid';
 import { PreFooter } from '../components/ui/PreFooter';
 import { getCitiesInfo } from '../components/utils/citiesInfo';
+import City from '../models/City';
 
 import styles from '../styles/home.module.scss'
 
 interface Props {
-    cities: any[]
+    cities: City[]
 }
 
 const Home: NextPage<Props> = ({ cities }) => {
@@ -30,7 +31,7 @@ const Home: NextPage<Props> = ({ cities }) => {
     )
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
             cities: getCitiesInfo()

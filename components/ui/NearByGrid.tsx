@@ -16,11 +16,11 @@ export const NearByGrid = (props: Props) => {
     const { location, name, lat, lng } = props;
 
     const [showMore, setShowMore] = useState(false);
+    const [nearByItems, setNearByItems] = useState<any[]>();
 
     const info = getNearByInfoByLocation(location);
     if (!info.length) return null;
 
-    const [nearByItems, setNearByItems] = useState<any[]>();
 
     const calcCrow = (lat1: number, lng1: number, lat2: number, lng2: number) => {
         var R = 6371;

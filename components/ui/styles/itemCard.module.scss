@@ -10,7 +10,7 @@
     .badge{
         position: absolute;
         top: 10px;
-        right: 10px;
+        left: 10px;
         background-color: #33333370;
         color: #fff;
         padding: 3px 12px 6px 12px;
@@ -18,6 +18,22 @@
         border-radius: 100px;
         backdrop-filter: blur(10px);
         text-transform: capitalize;
+    }
+
+    .favoriteField{
+        width: 20px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(51, 51, 51, 0.4392156863);
+        padding: 6px 6px 2px 6px;
+        border-radius: 24%;
+        backdrop-filter: blur(10px);
+        color: red;
+
+        img{
+            filter: invert(100%);
+        }
     }
 
     .image{
