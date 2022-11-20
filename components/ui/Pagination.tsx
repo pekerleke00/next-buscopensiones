@@ -24,7 +24,7 @@ export const Pagination = (props: Props) => {
         <div style={{display: 'flex', justifyContent: 'center'}}>
             {
                 Array(Math.ceil(totalAmount / 9)).fill('').map((na, index) => (
-                    <button onClick={() => handleClick(index + 1)}>
+                    <button onClick={() => handleClick(index + 1)} key={index}>
                         {
                             (index+1).toString() === router.query.page && `[${index+1}]` || index+1
                         }

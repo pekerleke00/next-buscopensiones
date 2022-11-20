@@ -18,6 +18,17 @@ export const NearByGrid = (props: Props) => {
     const [showMore, setShowMore] = useState(false);
     const [nearByItems, setNearByItems] = useState<any[]>();
 
+    useEffect(() => {
+        setNearByItems(info
+            .map(item => {
+                return {
+                    ...item,
+                    distance: calcCrow(lat, lng, item.lat, item.lng)
+                }
+            })
+            .sort((a: any, b: any) => a.distance - b.distance))
+    }, [])
+
     const info = getNearByInfoByLocation(location);
     if (!info.length) return null;
 
@@ -40,19 +51,6 @@ export const NearByGrid = (props: Props) => {
     const toRad = (Value: any) => {
         return Value * Math.PI / 180;
     }
-
-    useEffect(() => {
-        setNearByItems(info
-            .map(item => {
-                return {
-                    ...item,
-                    distance: calcCrow(lat, lng, item.lat, item.lng)
-                }
-            })
-            .sort((a: any, b: any) => a.distance - b.distance))
-    }, [])
-
-
 
     return (
         <div>

@@ -1,4 +1,4 @@
-.container{
+.container {
     box-shadow: 0px 5px 19px #00000029;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -7,12 +7,12 @@
     background-color: #fff;
     cursor: pointer;
 
-    .badge{
+    .badge {
         position: absolute;
-        top: 10px;
+        top: 18px;
         left: 10px;
-        background-color: #33333370;
-        color: #fff;
+        background-color: #ffffff87;
+        color: #333;
         padding: 3px 12px 6px 12px;
         font-size: 12px;
         border-radius: 100px;
@@ -20,23 +20,20 @@
         text-transform: capitalize;
     }
 
-    .favoriteField{
-        width: 20px;
+    .favoriteField {
         position: absolute;
         top: 10px;
         right: 10px;
-        background-color: rgba(51, 51, 51, 0.4392156863);
-        padding: 6px 6px 2px 6px;
+        padding: 10px 10px 5px 10px;
         border-radius: 24%;
+        background-color: #ffffff87;
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        color: red;
-
-        img{
-            filter: invert(100%);
-        }
+        color: #e24c3a;
+        font-size: 22px;
     }
 
-    .image{
+    .image {
         height: 200px;
         width: 100%;
         background-color: #ddd;
@@ -47,22 +44,22 @@
         // box-sizing: border-box;
     }
 
-    .info{
+    .info {
         padding: 20px 15px;
 
-        h4{
+        h4 {
             margin: 0;
             margin-bottom: 10px;
             color: #444;
             font-size: 25px;
             font-weight: 600;
-            
+
             &:first-letter {
                 text-transform: uppercase;
             }
         }
 
-        small{
+        small {
             color: #666;
             display: block;
             margin-bottom: 5px;
@@ -72,17 +69,17 @@
 }
 
 @media (min-width: 768px) {
-    .container{
+    .container {
         // grid-template-columns: 1fr 1.5fr;
 
-        .image{
+        .image {
             height: 250px;
         }
 
-        .info{
+        .info {
             padding: 15px 20px;
 
-            h4{
+            h4 {
                 font-size: 20px;
             }
         }

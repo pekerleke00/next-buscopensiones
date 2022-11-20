@@ -28,7 +28,7 @@ export const PreFooter = () => {
                             <div className={styles.cardsContainer}>
                                 {
                                     favorites.map((favItem: Item) => (
-                                        <div className={styles.imageContainer} onClick={() => handleFavoriteClick(favItem.id)}>
+                                        <div className={styles.imageContainer} onClick={() => handleFavoriteClick(favItem.id)} key={favItem.id}>
                                             <img src={favItem.pictures[0].path ? encodeURI(favItem.pictures[0].path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'} />
                                             <span className={styles.name}>{favItem.name} - {favItem.location}</span>
                                             {/* <span className={styles.location}>{favItem.location}</span> */}

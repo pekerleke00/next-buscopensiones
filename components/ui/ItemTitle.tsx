@@ -1,8 +1,10 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Item } from '../../models/Item';
 
 import styles from './styles/itemTitle.module.scss';
-import { useState, useEffect } from 'react';
+
 
 interface Props {
     item: Item
@@ -62,11 +64,13 @@ export const ItemTitle = (props: Props) => {
                 {item.description}
             </div>
 
-            <img
-                src={favorites?.find((favorite: any) => favorite.id === item.id) ? "/heart-solid.svg" : "/heart-regular.svg"}
-                alt="favorite"
-                onClick={handleToggleFavorite}
-            />
+            <div className={styles.favorite} onClick={handleToggleFavorite}>
+                {
+                    favorites?.find((favorite: any) => favorite.id === item.id)
+                        ? <AiFillHeart />
+                        : <AiOutlineHeart />
+                }
+            </div>
         </div>
     )
 }
