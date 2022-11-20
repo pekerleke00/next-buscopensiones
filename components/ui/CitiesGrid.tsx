@@ -1,10 +1,11 @@
 import React from 'react'
 import { useRouter } from 'next/router';
+import City from '../../models/City';
 
 import styles from './styles/citiesGrid.module.scss'
 
 interface Props {
-    cities: any[]
+    cities: City[]
 }
 
 export const CitiesGrid = (props: Props) => {

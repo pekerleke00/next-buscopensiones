@@ -1,9 +1,13 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Item } from '../../models/Item';
 
 import styles from './styles/itemTitle.module.scss';
 
+
 interface Props {
-    item: any
+    item: Item
 }
 
 export const ItemTitle = (props: Props) => {
@@ -26,9 +30,28 @@ export const ItemTitle = (props: Props) => {
         }
     }
 
+    const [favorites, setFavorites] = useState<Item[]>();
+
     const handleBack = () => {
         router.push(`/localidad/${getCityCode(item?.location)}`)
     }
+
+    const handleToggleFavorite = () => {
+        let currentFavorites = [...JSON.parse(localStorage.getItem('favorites') || '[]')];
+
+        if (currentFavorites.find((fav: Item) => fav.id === item.id)) {
+            currentFavorites = currentFavorites.filter((fav: Item) => fav.id !== item.id);
+        } else {
+            currentFavorites.push(item);
+        }
+
+        setFavorites(currentFavorites);
+        localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+    }
+
+    useEffect(() => {
+        setFavorites(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    }, [])
 
     return (
         <div className={styles.container}>
@@ -39,6 +62,14 @@ export const ItemTitle = (props: Props) => {
 
             <div className={styles.description}>
                 {item.description}
+            </div>
+
+            <div className={styles.favorite} onClick={handleToggleFavorite}>
+                {
+                    favorites?.find((favorite: Item) => favorite.id === item.id)
+                        ? <AiFillHeart />
+                        : <AiOutlineHeart />
+                }
             </div>
         </div>
     )

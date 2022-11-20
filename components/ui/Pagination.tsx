@@ -10,31 +10,27 @@ export const Pagination = (props: Props) => {
 
     const router = useRouter();
 
-    const handleOnChange = (e: any, page: number) => {
-        console.log(page)
-        console.log(router)
-        // router.push({ pathname: router.asPath, query: { page: page } });
+    console.log(router.query.page);
 
-        router.replace(
-            {
-                pathname: '/...',
-                query: {
-                    ...router.query, // list all the queries here
-                    page: page // override the color property
-                },
-            },
-            // undefined,
-            // {
-            //     shallow: true,
-            // },
-        );
+    const handleClick = (pageNumber: number) => {
+        console.log(pageNumber);
+
+        // const router = useRouter();
+        router.query.page = pageNumber.toString();
+        router.push(router)
     }
 
     return (
-        <div>
-            TODO: paginado
-            {/* <Typography>Page: {router.query.page}</Typography>
-            <MUIPagination count={Math.ceil(totalAmount / 10)} page={router.query.page} onChange={handleOnChange} /> */}
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+            {
+                Array(Math.ceil(totalAmount / 9)).fill('').map((na, index) => (
+                    <button onClick={() => handleClick(index + 1)} key={index}>
+                        {
+                            (index+1).toString() === router.query.page && `[${index+1}]` || index+1
+                        }
+                    </button>)
+                )
+            }
         </div>
     )
 }

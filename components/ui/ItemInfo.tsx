@@ -1,11 +1,12 @@
-import dynamic from 'next/dynamic';
 import React from 'react'
+import dynamic from 'next/dynamic';
+import { getNearByInfoByLocation } from '../utils/nearByInfo';
+import { Item } from '../../models/Item';
 
 import styles from './styles/itemInfo.module.scss'
-import { getNearByInfoByLocation } from '../utils/nearByInfo';
 
 interface Props {
-    item: any,
+    item: Item,
     location: string
 }
 
@@ -54,13 +55,13 @@ export const ItemInfo = (props: Props) => {
             </div>
             <div className={styles.mapContainer}>
                 <MapWithNoSSR
-                    lat={parseFloat(item.lat)}
-                    lng={parseFloat(item.lng)}
+                    lat={item.lat}
+                    lng={item.lng}
                     zoom={15}
                     markers={[
                         {
-                            lat: parseFloat(item.lat),
-                            lng: parseFloat(item.lng),
+                            lat: item.lat,
+                            lng: item.lng,
                             id: item.id,
                             name: item.name,
                             icon: '/marker.svg',

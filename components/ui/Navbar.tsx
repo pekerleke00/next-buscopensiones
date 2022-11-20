@@ -35,6 +35,9 @@ export const Navbar = () => {
                             <Link href={'/search'}>
                                 Buscar
                             </Link>
+                            <Link href={'/saved'}>
+                                Publicaciones guardadas
+                            </Link>
                             <hr />
                             <Link href={'/localidad/la_plata'}>
                                 La Plata
