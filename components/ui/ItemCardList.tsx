@@ -6,7 +6,7 @@ import styles from './styles/itemCardList.module.scss';
 
 interface Props {
     items: Item[],
-    totalAmount: number;
+    totalAmount?: number;
 }
 
 export const ItemCardList = (props: Props) => {
@@ -31,7 +31,9 @@ export const ItemCardList = (props: Props) => {
                 }
             </div>
             <hr />
-            <Pagination totalAmount={totalAmount} />
+            {
+                totalAmount && <Pagination totalAmount={totalAmount} />
+            }
         </>
     )
 }
