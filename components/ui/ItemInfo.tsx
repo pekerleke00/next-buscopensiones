@@ -55,13 +55,13 @@ export const ItemInfo = (props: Props) => {
             </div>
             <div className={styles.mapContainer}>
                 <MapWithNoSSR
-                    lat={parseFloat(item.lat)}
-                    lng={parseFloat(item.lng)}
+                    lat={item.lat}
+                    lng={item.lng}
                     zoom={15}
                     markers={[
                         {
-                            lat: parseFloat(item.lat),
-                            lng: parseFloat(item.lng),
+                            lat: item.lat,
+                            lng: item.lng,
                             id: item.id,
                             name: item.name,
                             icon: '/marker.svg',
