@@ -5,14 +5,13 @@ import { Pagination } from './Pagination';
 import styles from './styles/itemCardList.module.scss';
 
 interface Props {
-    items: Item[]
+    items: Item[],
+    totalAmount: number;
 }
 
 export const ItemCardList = (props: Props) => {
 
-    const { items } = props;
-
-    console.log(items);
+    const { items, totalAmount } = props;
 
     if (!items.length) {
         return (
@@ -32,7 +31,7 @@ export const ItemCardList = (props: Props) => {
                 }
             </div>
             <hr />
-            <Pagination totalAmount={129} />
+            <Pagination totalAmount={totalAmount} />
         </>
     )
 }

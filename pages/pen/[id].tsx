@@ -23,11 +23,10 @@ const Item: NextPage<Props> = ({ info }) => {
         <MainLayout title={`${info.name} | BuscoPensiones`}>
             <main className={styles.container}>
                 <ItemTitle item={info} />
-                
+
                 <ItemGallery pictures={info?.pictures} />
 
-                <ItemInfo item={info} location={getCityInfo(info.location)?.name!}/>
-
+                <ItemInfo item={info} location={getCityInfo(info.location)?.name!} />
 
                 <NearByGrid lat={info.lat} lng={info.lng} location={getCityInfo(info.location)?.name!} name={info.name} />
 

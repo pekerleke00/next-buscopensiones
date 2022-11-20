@@ -45,7 +45,7 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo, itemsAmount })
 
                 <div className={styles.container}>
                     <Sidebar location={cityInfo?.label || ''} itemsQuantity={itemsAmount}/>
-                    <ItemCardList items={items} />
+                    <ItemCardList items={items} totalAmount={itemsAmount} />
                 </div>
             </main>
         </MainLayout>

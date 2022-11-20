@@ -3,6 +3,7 @@ import React from 'react'
 import { Item } from '../../models/Item';
 
 import styles from './styles/itemCard.module.scss';
+import { useState, useEffect } from 'react';
 
 interface Props {
     item: Item
@@ -11,6 +12,8 @@ interface Props {
 export const ItemCard = (props: Props) => {
 
     const { item } = props;
+
+    const [favorites, setFavorites] = useState<Item[]>([])
 
     const router = useRouter();
 
@@ -23,15 +26,25 @@ export const ItemCard = (props: Props) => {
         return picture ? encodeURI(picture.path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'
     }
 
-    // const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const handleFavorite = (e: any) => {
+        e.stopPropagation();
 
-    // const handleFavorite = (e: any) => {
-    //     e.stopPropagation();
-    //     localStorage.setItem('favorites', JSON.stringify([...favorites, item]));
-    //     console.log(favorites)
-    //     favorites.push(item);
-    //     console.log(favorites)
-    // }
+        let currentFavorites = [...JSON.parse(localStorage.getItem('favorites') || '[]')];
+
+        if (currentFavorites.find((fav: Item) => fav.id === item.id)) {
+            currentFavorites = currentFavorites.filter((fav: Item) => fav.id !== item.id);
+        } else {
+            currentFavorites.push(item);
+        }
+
+        setFavorites(currentFavorites);
+        localStorage.setItem('favorites', JSON.stringify(currentFavorites));
+    }
+
+    useEffect(() => {
+        setFavorites(JSON.parse(localStorage.getItem('favorites') || '[]'))
+    }, [])
+
 
     return (
         <div className={styles.container} onClick={handleClick}>
@@ -40,21 +53,18 @@ export const ItemCard = (props: Props) => {
                 style={{ 'backgroundImage': `url(${getPicture()}` }}
             ></div>
             <span className={styles.badge}>{item.type}</span>
-            {/* <div className={styles.favoriteField} onClick={handleFavorite}>
+            <div className={styles.favoriteField} onClick={handleFavorite}>
                 {
-                    favorites.find((favorite: any) => favorite.id === item.id)
-                    && (
-                        <img src="/heart-solid.svg" alt="favorite" />
-                    )
-                    || (
-                        <img src="/heart-regular.svg" alt="favorite" />
-                    )
+                    <img
+                        src={favorites.find((favorite: any) => favorite.id === item.id) ? "/heart-solid.svg" : "/heart-regular.svg"}
+                        alt="favorite"
+                    />
                 }
-            </div> */}
+            </div>
             <div className={styles.info}>
                 <h4>{item.name}</h4>
                 <small>{item.address}</small>
-                <small>{item.location}</small>
+                <small className={item.location}>{item.location}</small>
             </div>
         </div>
     )
