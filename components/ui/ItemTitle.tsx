@@ -66,7 +66,7 @@ export const ItemTitle = (props: Props) => {
 
             <div className={styles.favorite} onClick={handleToggleFavorite}>
                 {
-                    favorites?.find((favorite: any) => favorite.id === item.id)
+                    favorites?.find((favorite: Item) => favorite.id === item.id)
                         ? <AiFillHeart />
                         : <AiOutlineHeart />
                 }

@@ -1,11 +1,12 @@
-import dynamic from 'next/dynamic';
 import React from 'react'
+import dynamic from 'next/dynamic';
+import { getNearByInfoByLocation } from '../utils/nearByInfo';
+import { Item } from '../../models/Item';
 
 import styles from './styles/itemInfo.module.scss'
-import { getNearByInfoByLocation } from '../utils/nearByInfo';
 
 interface Props {
-    item: any,
+    item: Item,
     location: string
 }
 
