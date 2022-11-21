@@ -9,6 +9,8 @@ import City from '../../models/City';
 import { Position } from '../../models/Position';
 
 import styles from '../../styles/localidad.module.scss';
+import itemsApi from '../../apis/itemsApis';
+import { useEffect } from 'react';
 
 
 interface Props {
@@ -24,9 +26,19 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo, itemsAmount })
         ssr: false
     });
 
+    const refreshItems = async() => {
+        const { data } = await itemsApi.get('/items'); //TODO: consumir SSR
+        console.log(data);
+    }
+
+    useEffect(() => {
+        refreshItems()
+    }, [])
+    
+
     return (
         <MainLayout title={`BuscoPensiones`}>
-            <main style={{paddingBottom: 40}}>
+            <main style={{ paddingBottom: 40 }}>
                 {/* <LocationBanner location={getCityName(router.query.localidad) || ''} /> */}
 
                 <div>
@@ -44,7 +56,7 @@ const Localidad: NextPage<Props> = ({ items, positions, cityInfo, itemsAmount })
                 </div>
 
                 <div className={styles.container}>
-                    <Sidebar location={cityInfo?.label || ''} itemsQuantity={itemsAmount}/>
+                    <Sidebar location={cityInfo?.label || ''} itemsQuantity={itemsAmount} />
                     <ItemCardList items={items} totalAmount={itemsAmount} />
                 </div>
             </main>

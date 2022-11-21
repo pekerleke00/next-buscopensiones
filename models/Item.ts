@@ -8,6 +8,7 @@ export interface Item {
     location: string,
     type: string,
     priceDescription: string,
+    price: Price,
     web: string,
     lat: number,
     lng: number,
@@ -17,4 +18,9 @@ export interface Item {
 export interface Picture {
     mainPicture: boolean,
     path: string
+}
+
+interface Price {
+    min: number,
+    max: number
 }

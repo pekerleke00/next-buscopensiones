@@ -19,6 +19,9 @@
 .DS_Store
 *.pem
 
+# mongo
+mongo/
+
 # debug
 npm-debug.log*
 yarn-debug.log*
