@@ -6,7 +6,7 @@ const mongoConnection = {
 
 export const connect = async() => {
     if (mongoConnection.isConnected) {
-        console.log('**** conectado');
+        console.info('- Open conncection');
         return;
     }
 
@@ -14,7 +14,7 @@ export const connect = async() => {
         mongoConnection.isConnected = mongoose.connections[0].readyState;
 
         if (mongoConnection.isConnected === 1) {
-            console.log('**** usando coneccion existente');
+            console.info('- Using existing connection');
             return;
         }
 
@@ -32,5 +32,5 @@ export const disconnect = async() => {
 
     await mongoose.disconnect();
     mongoConnection.isConnected = 0;
-    console.log('**** desconectado')
+    console.info('- Close connection')
 }

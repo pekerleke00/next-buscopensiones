@@ -1,0 +1,32 @@
+.container{
+    margin: -18px -15px 13px -15px;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3{
+        margin: 0;
+    }
+
+    .filtersModal{
+        position: absolute;
+        background-color: #ffffffe0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999999;
+        padding: 20px;
+        box-sizing: border-box;
+        backdrop-filter: blur(1px);
+
+        .closeModal{
+            font-size: 40px;
+            position: absolute;
+            top: 6px;
+            right: 20px;
+        }
+    }
+}

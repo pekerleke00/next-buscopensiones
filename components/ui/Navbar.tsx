@@ -36,7 +36,7 @@ export const Navbar = () => {
                                 Buscar
                             </Link>
                             <Link href={'/saved'}>
-                                Publicaciones guardadas
+                                Mis favoritos
                             </Link>
                             <hr />
                             <Link href={'/localidad/la_plata'}>

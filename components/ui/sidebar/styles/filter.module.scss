@@ -1,0 +1,20 @@
+.title{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.filterItem{
+    display: block;
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+
+    .resetFilter{
+        display: inline-block;
+        margin-left: 10px;
+        color: #000;
+        font-size: 22px;
+    }
+}

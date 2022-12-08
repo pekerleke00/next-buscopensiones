@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { connect, disconnect } from '../../database/db';
-import ItemModel, { IItem } from '../../mongo-models/Item';
+import { connect, disconnect } from '../../../database/db';
+import ItemModel, { IItem } from '../../../mongo-models/Item';
 
 type Data =
     | { message: string }
@@ -19,14 +19,22 @@ export default async function (req: NextApiRequest, res: NextApiResponse<Data>) 
 
 const getItems = async (res: NextApiResponse) => {
     await connect();
-    const items = await ItemModel.find().sort({ createdAt: 'asc' });
+    const items = await ItemModel.find().sort({ id: 'asc' });
     res.status(200).json(items);
     await disconnect();
 }
 
 const addItem = async (res: NextApiResponse, req: NextApiRequest) => {
-    await connect();
-    await ItemModel.insertMany([req.body])
-    res.status(200).json({message: 'success'});
-    await disconnect();
+    try {
+        await connect();
+        const newItem = new ItemModel(req.body); // TODO destructurar body (sanitizar)
+        await newItem.save();
+        await disconnect();
+        return res.status(201).json(newItem);
+
+    } catch (error) {
+        await disconnect();
+        console.error(error);
+        return res.status(500).json({message: 'Algo malio sal :('})
+    }
 }

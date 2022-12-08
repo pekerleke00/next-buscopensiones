@@ -26,7 +26,7 @@ export const ItemCardList = (props: Props) => {
             <div className={styles.container}>
                 {
                     items?.map((item: Item) => (
-                        <ItemCard item={item} key={item.name} />
+                        <ItemCard item={item} key={item._id} />
                     ))
                 }
             </div>

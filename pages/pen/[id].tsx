@@ -9,15 +9,16 @@ import { NearByGrid } from '../../components/ui/NearByGrid';
 import { getCityInfo } from '../../components/utils/citiesInfo';
 
 import styles from '../../styles/pen.module.scss'
+import { getItemById } from '../../database/dbItems';
 
 interface Props {
-    info?: Item
+    // info?: Item
+    info: Item
 }
 
-const Item: NextPage<Props> = ({ info }) => {
-    if (!info) {
-        return <div>No se encontro</div>
-    }
+const Item: NextPage<Props> = (props: Props) => {
+
+    const {info} = props;
 
     return (
         <MainLayout title={`${info.name} | BuscoPensiones`}>
@@ -37,12 +38,20 @@ const Item: NextPage<Props> = ({ info }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const data = await fetch(`https://buscopensiones.com/labs/api/controller.php?type=getById&value=${ctx.query.id}&key=f381add79d6349e58f4aa18b7139ef54`)
-        .then(response => response.json())
+    const itemData = await getItemById(ctx.query.id);
+
+    if (!itemData){
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
 
     return {
         props: {
-            info: data.data.residences.length ? data.data.residences[0] : null
+            info: itemData
         }
     }
 }

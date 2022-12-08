@@ -10,20 +10,18 @@ export const Pagination = (props: Props) => {
 
     const router = useRouter();
 
-    console.log(router.query.page);
-
     const handleClick = (pageNumber: number) => {
-        console.log(pageNumber);
-
         // const router = useRouter();
         router.query.page = pageNumber.toString();
         router.push(router)
     }
 
+    if (totalAmount <= 6) return null;
+
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
             {
-                Array(Math.ceil(totalAmount / 9)).fill('').map((na, index) => (
+                Array(Math.ceil(totalAmount / 6)).fill('').map((na, index) => (
                     <button onClick={() => handleClick(index + 1)} key={index}>
                         {
                             (index+1).toString() === router.query.page && `[${index+1}]` || index+1

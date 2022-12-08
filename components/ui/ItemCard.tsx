@@ -19,7 +19,7 @@ export const ItemCard = (props: Props) => {
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/pen/${item.id}`)
+        router.push(`/pen/${item._id}`)
     }
 
     const getPicture = () => {
