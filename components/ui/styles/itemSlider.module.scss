@@ -1,0 +1,16 @@
+.imageContainer {
+    height: 250px;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .slider{
+        display: none;
+    }
+}

@@ -20,9 +20,11 @@
     "react-grid-gallery": "^1.0.0",
     "react-icons": "^4.6.0",
     "react-leaflet": "^4.1.0",
+    "react-slick": "^0.29.0",
     "rsuite": "^5.22.2",
     "sass": "^1.55.0",
     "serverless-mysql": "^1.5.4",
+    "typewriter-effect": "^2.19.0",
     "yet-another-react-lightbox": "^2.2.1"
   },
   "devDependencies": {

@@ -20,7 +20,7 @@ export const PreFooter = () => {
 
     return (
         <div>
-            <div className={styles.favoritesContainer}>
+            {/* <div className={styles.favoritesContainer}>
                 {
                     !!favorites.length && (
                         <>
@@ -31,7 +31,6 @@ export const PreFooter = () => {
                                         <div className={styles.imageContainer} onClick={() => handleFavoriteClick(favItem.id)} key={favItem.id}>
                                             <img src={favItem.pictures[0]?.path ? encodeURI(favItem.pictures[0].path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'} />
                                             <span className={styles.name}>{favItem.name} - {favItem.location}</span>
-                                            {/* <span className={styles.location}>{favItem.location}</span> */}
                                         </div>
                                     ))
                                 }
@@ -39,7 +38,7 @@ export const PreFooter = () => {
                         </>
                     )
                 }
-            </div>
+            </div> */}
             <div className={styles.container}>
                 <div>
                     <h3>Sobre el proyecto</h3>

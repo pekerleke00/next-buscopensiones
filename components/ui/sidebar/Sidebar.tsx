@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { Filter } from './Filter';
 
 import styles from './styles/sidebar.module.scss'
+import Link from 'next/link';
 
 interface Props {
     location: String,
@@ -42,7 +43,7 @@ export const Sidebar = (props: Props) => {
 
             <br /> */}
 
-            <Filter title="Ver solo:" filters={['femenina', 'masculina', 'mixta']} query="f"/>
+            <Filter title="Ver solo:" filters={['femenina', 'masculina', 'mixta']} query="f" />
 
             {/* <AdWithNoSSR currentPath="sidebar"/> */}
             <div className={styles.adMockup}></div>
@@ -53,12 +54,19 @@ export const Sidebar = (props: Props) => {
                         <h4>Publicaciones favoritas</h4>
                         <div className={styles.cardsContainer}>
                             {
-                                favorites.map((favItem: Item) => (
-                                    <div style={{display: 'flex', alignItems: 'center', marginBottom: 10}} className={styles.imageContainer} onClick={() => handleFavoriteClick(favItem.id)} key={favItem.id}>
-                                        <img style={{width:  40}} src={favItem.pictures[0]?.path ? encodeURI(favItem.pictures[0].path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'} />
+                                favorites.slice(-5).map((favItem: Item) => (
+                                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }} className={styles.imageContainer} onClick={() => handleFavoriteClick(favItem.id)} key={favItem.id}>
+                                        <img style={{ width: 40 }} src={favItem.pictures[0]?.path ? encodeURI(favItem.pictures[0].path.replace('..', 'https://buscopensiones.com')) : '/index1.jpg'} />
                                         <span className={styles.name}>{favItem.name} - {favItem.location}</span>
                                     </div>
                                 ))
+                            }
+                            {
+                                favorites.length > 5 && (
+                                    <Link href={'/saved'}>
+                                        <button className={styles.viewMore}>Ver mas</button>
+                                    </Link>
+                                )
                             }
                         </div>
                     </>

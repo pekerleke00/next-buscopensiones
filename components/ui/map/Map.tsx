@@ -16,7 +16,7 @@ const Map = (props: Props) => {
     return (
         <div style={{ borderRadius: 10, overflow: 'hidden', border: '1px solid #ccc' }}>
             <MapContainer
-                center={[lat, lng]} zoom={zoom || 12} scrollWheelZoom={true}
+                center={[lat, lng]} zoom={zoom || 12} scrollWheelZoom={false} dragging={false}
                 style={{ height: 300, zIndex: 0 }}
             >
                 <TileLayer

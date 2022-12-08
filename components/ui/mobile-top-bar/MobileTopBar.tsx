@@ -17,7 +17,7 @@ export const MobileTopBar = (props: Props) => {
         <div className={styles.container}>
             <div className={styles.title}>
                 <h3>{location}</h3>
-                {itemsQuantity} resultados
+                <span>{itemsQuantity} resultados</span>
             </div>
 
             <div>

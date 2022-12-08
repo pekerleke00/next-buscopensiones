@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MutableRefObject } from 'react'
 import { getNearByInfoByLocation } from '../utils/nearByInfo';
 import { useState, useEffect } from 'react';
 
@@ -8,12 +8,13 @@ interface Props {
     location: string,
     name: string,
     lat: number,
-    lng: number
+    lng: number,
+    nearByRef: MutableRefObject<null>
 }
 
 export const NearByGrid = (props: Props) => {
 
-    const { location, name, lat, lng } = props;
+    const { location, name, lat, lng, nearByRef } = props;
 
     const [showMore, setShowMore] = useState(false);
     const [nearByItems, setNearByItems] = useState<any[]>();
@@ -53,7 +54,7 @@ export const NearByGrid = (props: Props) => {
     }
 
     return (
-        <div>
+        <div ref={nearByRef}>
             <h3>Universidades cercanas <small>Calculado en linea recta</small></h3>
             <div className={styles.itemsContainer}>
                 {

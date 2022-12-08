@@ -1,0 +1,22 @@
+.container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+
+    p{
+        font-weight: 500;
+        color: #0198a1;
+        display: flex;
+        align-items: center;
+
+        span{
+            margin-left: 4px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container{
+        display: none;
+    }
+}

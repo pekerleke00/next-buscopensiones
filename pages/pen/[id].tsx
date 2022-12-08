@@ -10,6 +10,9 @@ import { getCityInfo } from '../../components/utils/citiesInfo';
 
 import styles from '../../styles/pen.module.scss'
 import { getItemById } from '../../database/dbItems';
+import { useRef } from 'react';
+import { ItemButtonGuides } from '../../components/ui/ItemButtonGuides';
+import { ItemSlider } from '../../components/ui/ItemSlider';
 
 interface Props {
     // info?: Item
@@ -18,18 +21,25 @@ interface Props {
 
 const Item: NextPage<Props> = (props: Props) => {
 
-    const {info} = props;
+    const { info } = props;
+
+    const mapRef = useRef(null);
+    const nearByRef = useRef(null);
 
     return (
         <MainLayout title={`${info.name} | BuscoPensiones`}>
             <main className={styles.container}>
+                <ItemSlider pictures={info.pictures}/>
+
                 <ItemTitle item={info} />
+
+                <ItemButtonGuides mapRef={mapRef} nearByRef={nearByRef} />
+
+                <ItemInfo item={info} location={getCityInfo(info.location)?.name!} mapRef={mapRef} />
 
                 <ItemGallery pictures={info?.pictures} />
 
-                <ItemInfo item={info} location={getCityInfo(info.location)?.name!} />
-
-                <NearByGrid lat={info.lat} lng={info.lng} location={getCityInfo(info.location)?.name!} name={info.name} />
+                <NearByGrid lat={info.lat} lng={info.lng} location={getCityInfo(info.location)?.name!} name={info.name} nearByRef={nearByRef} />
 
                 <div className={styles.adMockup}></div>
             </main>
@@ -40,7 +50,7 @@ const Item: NextPage<Props> = (props: Props) => {
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const itemData = await getItemById(ctx.query.id);
 
-    if (!itemData){
+    if (!itemData) {
         return {
             redirect: {
                 destination: '/',

@@ -1,9 +1,9 @@
 .container{
+    display: none;
     margin-top: 20px;
-    display: grid;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     .imageContainer{
         height: 100px;
@@ -16,8 +16,11 @@
     }
 }
 
+
+
 @media (min-width: 768px) {
     .container{
+        display: grid;
         grid-column-gap: 10px;
         grid-row-gap: 10px;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

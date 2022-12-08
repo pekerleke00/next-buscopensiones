@@ -8,6 +8,7 @@ import styles from './styles/itemInfo.module.scss'
 interface Props {
     item: Item,
     location: string
+    mapRef: any
 }
 
 const MapWithNoSSR = dynamic(() => import("./map/Map"), {
@@ -16,7 +17,7 @@ const MapWithNoSSR = dynamic(() => import("./map/Map"), {
 
 export const ItemInfo = (props: Props) => {
 
-    const { item, location } = props;
+    const { item, location, mapRef } = props;
 
     const nearByInfo = getNearByInfoByLocation(location);
 
@@ -53,7 +54,7 @@ export const ItemInfo = (props: Props) => {
                     }
                 </div>
             </div>
-            <div className={styles.mapContainer}>
+            <div className={styles.mapContainer} ref={mapRef}>
                 <MapWithNoSSR
                     lat={item.lat}
                     lng={item.lng}

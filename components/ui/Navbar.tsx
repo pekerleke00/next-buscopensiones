@@ -12,7 +12,8 @@ export const Navbar = () => {
         <nav className={styles.navContainer}>
             <div className={styles.menuContainer}>
                 <Link href={'/'}>
-                    <Image className={styles.logo} src="/logo.png" width="182" height="35" alt="logo" />
+                    {/* <Image className={styles.logo} src="/logo.png" width="182" height="35" alt="logo" /> */}
+                    <img className={styles.logo} src='/logo.png' alt='logo'/>
                 </Link>
 
                 <div className={classNames(styles.menuIcon, { [styles.change]: showMore })} onClick={() => setShowMore(prevValue => !prevValue)}>
