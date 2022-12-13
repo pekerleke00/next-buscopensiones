@@ -22,8 +22,8 @@ export const getItemByCity = async (city: string, page: number, filter: string |
     if (filter) select.type = filter
 
     const items = await ItemModel.find(select)
-        .skip((page - 1) * 6)
-        .limit(6)
+        .skip((page - 1) * 9)
+        .limit(9)
         .lean();
     await disconnect();
 

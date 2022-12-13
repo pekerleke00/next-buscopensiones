@@ -1,22 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router';
+import { Item } from '../../models/Item';
 
 import styles from './styles/prefooter.module.scss';
-import { useState, useEffect } from 'react';
-import { Item } from '../../models/Item';
-import { useRouter } from 'next/router';
 
 export const PreFooter = () => {
-    const [favorites, setfavorites] = useState<Item[]>([])
+    // const [favorites, setfavorites] = useState<Item[]>([])
 
-    const router = useRouter();
+    // const router = useRouter();
 
-    const handleFavoriteClick = (id: number) => {
-        router.push(`/pen/${id}`);
-    }
+    // const handleFavoriteClick = (id: number) => {
+    //     router.push(`/pen/${id}`);
+    // }
 
-    useEffect(() => {
-        setfavorites(JSON.parse(localStorage.getItem('favorites') || '[]'));
-    }, [])
+    // useEffect(() => {
+    //     setfavorites(JSON.parse(localStorage.getItem('favorites') || '[]'));
+    // }, [])
 
     return (
         <div>

@@ -32,6 +32,4 @@ export const CitiesGrid = (props: Props) => {
             }
         </div>
     )
-
-    // pegada a base para listado items
 }

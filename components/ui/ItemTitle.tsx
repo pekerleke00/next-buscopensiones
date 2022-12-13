@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Item } from '../../models/Item';
+import { getCityInfo } from '../utils/citiesInfo';
 
 import styles from './styles/itemTitle.module.scss';
 
@@ -16,24 +17,10 @@ export const ItemTitle = (props: Props) => {
 
     const router = useRouter();
 
-    const getCityCode = (city: string | string[] | undefined) => {
-        if (city === 'La Plata') {
-            return 'la_plata'
-        } else if (city === 'Buenos Aires Capital') {
-            return 'buenos_aires'
-        } else if (city === 'Rosario') {
-            return 'rosario'
-        } else if (city === 'Cordoba') {
-            return 'cordoba'
-        } else if (city === 'Mendoza') {
-            return 'mendoza'
-        }
-    }
-
     const [favorites, setFavorites] = useState<Item[]>();
 
     const handleBack = () => {
-        router.push(`/localidad/${getCityCode(item?.location)}`)
+        router.push(`/localidad/${getCityInfo(item?.location)?.name}`)
     }
 
     const handleToggleFavorite = () => {

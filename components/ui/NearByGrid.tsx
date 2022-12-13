@@ -1,6 +1,5 @@
-import React, { MutableRefObject } from 'react'
+import React, { MutableRefObject, useState, useEffect } from 'react'
 import { getNearByInfoByLocation } from '../utils/nearByInfo';
-import { useState, useEffect } from 'react';
 
 import styles from './styles/nearByGrid.module.scss';
 
@@ -54,8 +53,8 @@ export const NearByGrid = (props: Props) => {
     }
 
     return (
-        <div ref={nearByRef}>
-            <h3>Universidades cercanas <small>Calculado en linea recta</small></h3>
+        <div ref={nearByRef} className={styles.container}>
+            <h3>Universidades cercanas <small>*Calculado en linea recta</small></h3>
             <div className={styles.itemsContainer}>
                 {
                     nearByItems?.slice(0, 4).map(item => (

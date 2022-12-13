@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useRouter } from 'next/router';
 import { Item, Picture } from '../../models/Item';

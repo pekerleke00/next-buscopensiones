@@ -1,9 +1,8 @@
 import React from 'react'
-import { Picture } from '../../models/Item'
 import Slider from 'react-slick';
+import { Picture } from '../../models/Item'
 
 import styles from './styles/itemSlider.module.scss';
-import classNames from 'classnames';
 
 interface Props {
     pictures: Picture[]
@@ -21,9 +20,10 @@ export const ItemSlider = (props: Props) => {
         <div className={styles.slider}>
             <Slider {...settings} style={{ margin: '-20px -20px 20px -20px' }}>
                 {
-                    pictures.map(picture => (
+                    pictures.map((picture, index) => (
                         <div key={picture.path} className={styles.imageContainer}>
                             <img src={picture.path.replace('..', 'https://buscopensiones.com')} alt="Image 2" />
+                            <span>{index+1}/{pictures.length}</span>
                         </div>
                     ))
                 }

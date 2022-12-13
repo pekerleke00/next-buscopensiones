@@ -1,5 +1,9 @@
 .navContainer {
-    background-color: #0198a1;
+    background-color: #0198a1db;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    backdrop-filter: blur(2px);
 
     .menuContainer {
         padding: 10px;
