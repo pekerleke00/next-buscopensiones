@@ -22,6 +22,7 @@
             display: inline-block;
             cursor: pointer;
             z-index: 3000;
+            margin-right: 20px;
 
             .bar1,
             .bar2,
@@ -80,4 +81,10 @@
             font-size: 18px;
         }
     }
+}
+
+
+.translucidNavbar{
+    position: absolute;
+    background-color: transparent;
 }

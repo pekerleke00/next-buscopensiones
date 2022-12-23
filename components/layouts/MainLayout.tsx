@@ -8,13 +8,14 @@ import styles from "./MainLayout.module.css"
 interface Props {
     children: React.ReactNode;
     title?: string;
+    translucidNavbar?: boolean;
 }
 
 const origin = (typeof window === 'undefined') ? '' : window.location.origin
 
 export const MainLayout: FC<Props> = (props: Props) => {
 
-    const { children, title } = props;
+    const { children, title, translucidNavbar = false } = props;
 
     return (
         <div className={styles.container}>
@@ -49,9 +50,9 @@ export const MainLayout: FC<Props> = (props: Props) => {
                 />
             </Head>
 
-            <Navbar />
+            <Navbar translucidNavbar={translucidNavbar} />
 
-            <main className={styles.mainContainer}>
+            <main className={`${!translucidNavbar && styles.mainContainer}`}>
                 {children}
             </main>
         </div>

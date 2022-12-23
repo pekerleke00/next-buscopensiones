@@ -30,7 +30,7 @@ export const ItemCardList = (props: Props) => {
                     ))
                 }
             </div>
-            <hr />
+            <div></div>
             <Pagination totalAmount={totalAmount} />
         </>
     )

@@ -5,11 +5,18 @@ import Image from 'next/image';
 
 import styles from "./styles/navbar.module.scss";
 
-export const Navbar = () => {
+interface Props {
+    translucidNavbar: boolean;
+}
+
+export const Navbar = (props: Props) => {
+
+    const {translucidNavbar} = props;
+
     const [showMore, setShowMore] = useState(false)
 
     return (
-        <nav className={styles.navContainer}>
+        <nav className={`${styles.navContainer} ${translucidNavbar && styles.translucidNavbar}`}>
             <div className={styles.menuContainer}>
                 <Link href={'/'}>
                     {/* <Image className={styles.logo} src="/logo.png" width="182" height="35" alt="logo" /> */}

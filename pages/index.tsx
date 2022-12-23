@@ -16,7 +16,7 @@ interface Props {
 const Home: NextPage<Props> = ({ cities }) => {
 
     return (
-        <MainLayout>
+        <MainLayout translucidNavbar={true}>
             <main>
                 <div className={styles.mainBody}>
                     <div>
