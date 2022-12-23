@@ -7,9 +7,6 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --frozen-lockfile
-RUN ls
-RUN cd /app
-RUN ls -a
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
@@ -49,5 +46,4 @@ ENV PORT 3000
 # Uncomment the following line in case you want to disable telemetry.
 ENV NEXT_TELEMETRY_DISABLED 1
 
-#TODO: FIX, Error: Cannot find module '/app/server.js'
 CMD ["node", "server.js"]

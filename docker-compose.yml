@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGO_URL=mongodb://mongo:27017/db
+      - MONGO_URL=mongodb://172.17.0.1:27017/db
     depends_on:
       - mongo
     links:
