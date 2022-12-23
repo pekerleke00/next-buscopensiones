@@ -17,8 +17,9 @@ export const ItemSlider = (props: Props) => {
     };
 
     return (
+        // margin: '-20px -20px 20px -20px'
         <div className={styles.slider}>
-            <Slider {...settings} style={{ margin: '-20px -20px 20px -20px' }}>
+            <Slider {...settings}>
                 {
                     pictures.map((picture, index) => (
                         <div key={picture.path} className={styles.imageContainer}>

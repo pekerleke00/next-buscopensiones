@@ -13,16 +13,16 @@ export const getItemById = async (id: string | string[] | undefined) => {
     return JSON.parse(JSON.stringify(item));
 }
 
-export const getItemByCity = async (city: string, page: number, filter: string | string[] | undefined) => {
+export const getItemByCity = async (city: string, page: string | string[], filter: string | string[] | undefined) => {
     // if (!isValidObjectId(id)) return null; TODO check city
     await connect();
 
-    const select = {};
+    const select: any = {};
     if (city) select.location = city
     if (filter) select.type = filter
 
     const items = await ItemModel.find(select)
-        .skip((page - 1) * 9)
+        .skip((Array.isArray(page) ? parseInt(page[0]) : parseInt(page) - 1) * 9)
         .limit(9)
         .lean();
     await disconnect();
@@ -30,12 +30,12 @@ export const getItemByCity = async (city: string, page: number, filter: string |
     return JSON.parse(JSON.stringify(items));
 }
 
-export const getAmountByCity = async (city: string, filter: string) => {
+export const getAmountByCity = async (city: string, filter: string | string[] | undefined) => {
     // if (!isValidObjectId(id)) return null; TODO check city
 
     await connect();
 
-    const select = {};
+    const select: any = {};
     if (city) select.location = city
     if (filter) select.type = filter
 

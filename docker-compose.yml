@@ -1,8 +1,27 @@
+version: "3"
+
 services:
-    db:
-        image: mongo:5.0.0
-        container_name: buscopensiones-database
-        ports:
-            - 27017:27017
-        volumes:
-            - ./mongo:/data/db
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/db
+    depends_on:
+      - mongo
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo:5.0.0
+    restart: always
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - "27017:27017"

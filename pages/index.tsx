@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { NextPage } from 'next'
 import { GetStaticProps } from 'next'
 import { MainLayout } from '../components/layouts/MainLayout';
@@ -15,22 +14,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ cities }) => {
-
-    // const [title, setTitle] = useState<string>('')
-
-    // useEffect(() => {
-    //     const titles = ['BuscoPensiones.com', 'Guia de hospedajes para estudiantes por estudiantes']
-
-    //     // while (true) {
-    //         titles.forEach(title => {
-    //             title.split('').forEach(letter => {
-    //                 setTimeout(() => setTitle((prev: string) => `${prev}${letter}`), 1000);
-    //             })
-    //             setTitle('')
-    //         })
-    //     // }
-    // }, [])
-
 
     return (
         <MainLayout>

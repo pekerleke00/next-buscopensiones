@@ -66,7 +66,7 @@ const Localidad: NextPage<Props> = (props: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const cityInfo = getCityInfo(ctx.query.localidad as string);
-    const page = parseInt(ctx.query.page) || 1;
+    const page = ctx.query.page || '1';
     const filter = ctx.query.f;
 
     const itemsData = await getItemByCity(cityInfo?.label || '', page, filter);

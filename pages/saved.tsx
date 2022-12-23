@@ -17,7 +17,7 @@ const Saved: NextPage = () => {
     return (
         <MainLayout title={`Favoritos`}>
             <div style={{ padding: 20 }}>
-                <ItemCardList items={favorites || []} />
+                <ItemCardList items={favorites || []} totalAmount={favorites?.length || 0}/>
             </div>
         </MainLayout>
     )
