@@ -5,7 +5,7 @@ import { IoMdArrowBack } from 'react-icons/io';
 import styles from '../styles/custom404.module.scss'
 import Link from 'next/link';
 
-export default () => {
+const custom404 = () => {
     return (
         <MainLayout>
             <div className={styles.container}>
@@ -21,3 +21,5 @@ export default () => {
         </MainLayout>
     )
 }
+
+export default custom404;
