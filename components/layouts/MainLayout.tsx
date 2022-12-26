@@ -4,6 +4,7 @@ import React from 'react'
 import { Navbar } from '../ui/Navbar'
 
 import styles from "./MainLayout.module.css"
+import { Footer } from '../ui/Footer'
 
 interface Props {
     children: React.ReactNode;
@@ -55,6 +56,8 @@ export const MainLayout: FC<Props> = (props: Props) => {
             <main className={`${!translucidNavbar && styles.mainContainer}`}>
                 {children}
             </main>
+
+            <Footer />
         </div>
     )
 }
